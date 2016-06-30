@@ -23,7 +23,7 @@ h2 {
   border-radius: 0;
   border: none;
   color: $card-text-color;
-  min-height:230px;
+  min-height: 15em;
   &.brand-dd {
     border-top: 5px solid $brand-color-dd;
   }
@@ -67,4 +67,10 @@ h2 {
       font-size: 1.2rem;
     }
   }
+}
+
+.charts #container {
+  min-width: 310px;
+  height: 25rem;
+  margin: 0 auto;
 }

@@ -11,10 +11,12 @@ class RoomsController < ApplicationController
     data["sale"] = params[:sale] unless params[:sale].nil?
     data["tip"] = params[:tip] unless params[:tip].nil?
     data["void"] = params[:void] unless params[:void].nil?
+
+    # Broadcast baby!
     ActionCable.server.broadcast 'room_channel', data
 
     respond_to do |format|
-      format.html  { head :ok }
+      format.html  { render plain: "ok" }
       format.json  { render json: { result: true,  message: "Push Success" }.to_json }
     end
   end
