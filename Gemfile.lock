@@ -39,8 +39,13 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.0.0)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     builder (3.2.2)
     byebug (9.0.5)
+    coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -159,6 +164,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.5)
