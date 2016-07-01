@@ -6,18 +6,19 @@ class RoomsController < ApplicationController
   end
 
   def push
-    data = Hash.new
-    data["refund"] = params[:refund] unless params[:refund].nil?
-    data["sale"] = params[:sale] unless params[:sale].nil?
-    data["tip"] = params[:tip] unless params[:tip].nil?
-    data["void"] = params[:void] unless params[:void].nil?
+    data = Message.first
+    data = Message.new(sale: 0, refund: 0, tip: 0, void: 0) if data.nil?
 
-    # Broadcast baby!
-    ActionCable.server.broadcast 'room_channel', data
+    data.refund = params[:refund] unless params[:refund].nil?
+    data.sale   = params[:sale] unless params[:sale].nil?
+    data.tip    = params[:tip] unless params[:tip].nil?
+    data.void   = params[:void] unless params[:void].nil?
 
-    respond_to do |format|
-      format.html  { render plain: "ok" }
-      format.json  { render json: { result: true,  message: "Push Success" }.to_json }
+    if data.save
+      respond_to do |format|
+        format.html  { render plain: "ok" }
+        format.json  { render json: { result: true,  message: "Push Success" }.to_json }
+      end
     end
   end
 end
