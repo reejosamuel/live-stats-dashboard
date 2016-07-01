@@ -26,8 +26,14 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
       // format 2 decimal places
       value = parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
       var amountArr = value.split(".");
-      var amountString = "<small>AED </small>" + amountArr[0] + "<small>." + amountArr[1] + "</small>";
-      $("." + key + " .card-value").html(amountString);
+      var amountString = $("<strong class=\"card-value\"><small>AED </small>" + amountArr[0] + "<small>." + amountArr[1] + "</small></strong>");
+
+      // animate the transition
+      $("." + key + " .card-value").fadeOut("slow", function(){
+         var div = amountString.hide();
+         $(this).replaceWith(amountString);
+         $("." + key + " .card-value").fadeIn("slow");
+      });
     });
   },
 

@@ -47,7 +47,7 @@ $(function () {
             },
             yAxis: {
                 title: {
-                    text: 'Value'
+                    text: 'AED Value'
                 },
                 gridLineColor: '#333333',
                 plotLines: [{
