@@ -2,6 +2,8 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
     stream_from "room_channel"
+    # when we know a client is subscribed, preload the values
+    ActionCable.server.broadcast 'room_channel', Message.first
   end
 
   def unsubscribed
