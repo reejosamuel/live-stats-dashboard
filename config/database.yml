@@ -25,5 +25,7 @@ production:
   encoding: unicode
   database: myapp_test
   pool: 5
-  username: myapp
-  password: password1
+  username: postgres
+  password: postgres
+  host: postgres
+  port: 5432
