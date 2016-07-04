@@ -1,12 +1,9 @@
-FROM ruby:2.2
-MAINTAINER marko@codeship.com
+FROM alpine:3.2
+MAINTAINER m@reejosamuel.com
 
-# Install apt based dependencies required to run Rails as
-# well as RubyGems. As the Ruby image itself is based on a
-# Debian image, we use apt-get to install those.
-RUN apt-get update && apt-get install -y \
-  build-essential \
-  nodejs
+
+RUN apk update && apk --update add ruby ruby-irb ruby-json ruby-rake \
+    ruby-bigdecimal ruby-io-console libstdc++ tzdata postgresql-client nodejs
 
 # Configure the main working directory. This is the base
 # directory used in any further RUN, COPY, and ENTRYPOINT
@@ -14,23 +11,34 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir -p /app
 WORKDIR /app
 
+
 # Copy the Gemfile as well as the Gemfile.lock and install
 # the RubyGems. This is a separate step so the dependencies
 # will be cached unless changes to one of those two files
 # are made.
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler && bundle install --jobs 20 --retry 5
+
+RUN apk --update add --virtual build-dependencies build-base ruby-dev openssl-dev \
+    postgresql-dev libc-dev linux-headers && \
+    gem install bundler && \
+    bundle install --jobs 20 --retry 5 --without development test && \
+    apk del build-dependencies
+
+
+# RUN gem install bundler && bundle install --jobs 20 --retry 5 --without development test
+# Set Rails to run in production
+ENV RAILS_ENV production
+ENV RACK_ENV production
+
 
 # Copy the main application.
 COPY . ./
 
-# ENV RAILS_ENV=production
+# RUN chown -R nobody:nogroup /app
+# USER nobody
 
-# Expose port 3000 to the Docker host, so we can access it
-# from the outside.
-EXPOSE 3000
+# Precompile Rails assets
+RUN bundle exec rake assets:precompile
 
-# The main command to run when the container starts. Also
-# tell the Rails dev server to bind to all interfaces by
-# default.
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+# Start puma
+# CMD bundle exec puma -C config/puma.rb

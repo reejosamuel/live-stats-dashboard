@@ -23,9 +23,9 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: myapp_test
+  database: postgres
   pool: 5
   username: postgres
-  password: postgres
+  password: password
   host: postgres
   port: 5432

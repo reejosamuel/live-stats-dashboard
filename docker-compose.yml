@@ -1,13 +1,25 @@
+data:
+  image: busybox
+  volumes:
+    - /tmp
+    # For postgres
+    - /var/lib/postgresql/data
+postgres:
+  image: postgres:9.4
+  # command: env
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: password
+  ports:
+    - "5432"
+  volumes_from:
+    - data
 app:
   build: .
-  command: rails server -p 3000 -b '0.0.0.0'
-  volumes:
-    - .:/app
+  environment:
+    SECRET_KEY_BASE: rake secret
+  command: rails server -p 3000 -b '0.0.0.0' #env # puma -C config/puma.rb
   ports:
     - "3000:3000"
   links:
     - postgres
-postgres:
-  image: postgres:9.4
-  ports:
-    - "5432"
