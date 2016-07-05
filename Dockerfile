@@ -41,4 +41,4 @@ COPY . ./
 RUN bundle exec rake assets:precompile
 
 # Start puma
-# CMD bundle exec puma -C config/puma.rb
+CMD bundle exec puma -C config/puma.rb
