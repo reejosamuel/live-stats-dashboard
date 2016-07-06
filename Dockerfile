@@ -1,5 +1,5 @@
 FROM alpine:3.2
-MAINTAINER m@reejosamuel.com
+MAINTAINER Reejo Samuel <m@reejosamuel.com>
 
 
 RUN apk update && apk --update add ruby ruby-irb ruby-json ruby-rake \
