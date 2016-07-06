@@ -1,6 +1,7 @@
 app:
   build: .
   environment:
+    SOCKET_REQUEST_ORIGIN: http://ferrari.freakquencybuzz.com
     RAILS_SERVE_STATIC_FILES: 1
     RAILS_LOG_TO_STDOUT: 1
     SECRET_KEY_BASE: d7f2ff73171113d344f14c78a6359c2a2133ed1cdf66e87bea5ae667d885521447ac04f5a9f8aec0bfceca54f091a3423c249484bc527c0306646e53364add82
