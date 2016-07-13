@@ -1,24 +1,8 @@
-# README
+Live Dashboard
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+So I got a long holiday and the goal was to learn something new. Off the top of my head was to try and learn action cable and the real time features introduced in Rails 5 and also try to pick up some basics on Docker.
 
-Things you may want to cover:
 
-* Ruby version
+I'm writing a article on the steps i have taken, will publish it soon.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Screenshot](https://cdn-images-1.medium.com/max/1200/1*a4atdx8259khZRtHYxcSKw.png)
