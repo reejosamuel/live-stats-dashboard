@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5.x'
 gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
+gem 'devise', '~> 4.x'
 
 group :production do
   gem 'pg'
