@@ -6,7 +6,7 @@ $(function () {
             }
         });
 
-        var saleChart = $('#container').highcharts({
+        var saleChart = $('#chart-container').highcharts({
             colors: ["#30d30c", "#55BF3B", "#DF5353", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
                 "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"
             ],

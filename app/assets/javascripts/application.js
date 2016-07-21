@@ -11,7 +11,18 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
+// require bootstrap/util
+//= require bootstrap/alert
+// require bootstrap/button
+// require bootstrap/carousel
+// require bootstrap/collapse
+//= require bootstrap/dropdown
+// require bootstrap/modal
+// require bootstrap/scrollspy
+// require bootstrap/tab
+// require bootstrap/tooltip
+// require bootstrap/popover
+// require bootstrap-sprockets
 //= require highcharts@4.2.5
 //= require jquery.matchheight@0.7.0
 //= require jquery.fittext@1.2.0

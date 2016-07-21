@@ -2,16 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$card-bg: #2a2a2a;
+$card-bg: #252830;
 $card-text-color: #666;
-$brand-color-dd:#E81280;
-$brand-color-medfx:#74b8ad;
+$brand-color-dd: #E81280;
+$brand-color-medfx: #74b8ad;
+$transparent: rgba(255,255,255,0.0);
+
 
 .card {
-  background-color: $card-bg;
+  background-color: $transparent;
   color: #fff;
   border-radius: 0;
-  border: none;
+  border: 1px solid #434857;
   color: $card-text-color;
   &.brand-dd {
     border-top: 5px solid $brand-color-dd;
@@ -58,7 +60,7 @@ $brand-color-medfx:#74b8ad;
   }
 }
 
-.charts #container {
+.charts #chart-container {
   min-width: 310px;
   height: 25rem;
   margin: 0 auto;
