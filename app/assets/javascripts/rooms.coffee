@@ -3,5 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  $('.card-value').fitText()
   $('.card').matchHeight()
   return

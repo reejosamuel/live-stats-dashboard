@@ -7,23 +7,12 @@ $card-text-color: #666;
 $brand-color-dd:#E81280;
 $brand-color-medfx:#74b8ad;
 
-body {
-  background-color: #101214;
-  margin: 0;
-  padding: 20px;
-}
-
-h2 {
-  color: #fff;
-}
-
 .card {
   background-color: $card-bg;
   color: #fff;
   border-radius: 0;
   border: none;
   color: $card-text-color;
-  min-height: 15em;
   &.brand-dd {
     border-top: 5px solid $brand-color-dd;
   }
@@ -38,7 +27,7 @@ h2 {
   }
   .card-value {
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   .card-footer {
     background-color: $card-bg;
@@ -74,3 +63,4 @@ h2 {
   height: 25rem;
   margin: 0 auto;
 }
+

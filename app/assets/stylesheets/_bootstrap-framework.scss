@@ -10,8 +10,10 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+$body-bg: #101214;
+$headings-color: #fff;
+
 // Core variables and mixins
-// @import "bootstrap/custom";
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
@@ -57,3 +59,23 @@
 
 // Utility classes
 @import "bootstrap/utilities";
+
+// @media (max-width: 768px) {
+//   .card {
+//     min-height: 10rem;
+//   }
+// }
+
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .card {
+    min-height: 15em;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, md)) {
+  .card {
+    min-height: 10em;
+  }
+}
+

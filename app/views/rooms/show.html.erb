@@ -1,36 +1,34 @@
-<h2>Live Dashboard</h2>
-
-<!-- <div class="messages">
-  <%#= render @messages %>
-</div> -->
-
 <% types = { sale: true, tip: true, refund: false, void: false } %>
 
-<div class="row">
-  <% types.keys.each do |type| %>
-  <div class=" col-xs-12 col-lg-3">
-    <div class="card <%= types[type] ? "brand-dd" : "brand-med-fx" %> <%= type.to_s %>">
-      <div class="card-header">
-        <%= type.to_s %>
-      </div>
-      <div class="card-block clearfix">
-        <strong class="card-value"><small>AED </small>0<small>.00</small></strong>
-      </div>
-      <div class="card-footer clearfix">
-        <div class="card-order-number">
+<div class="container-fluid">
+  <h2>Live Dashboard</h2>
 
+  <div class="row">
+    <% types.keys.each do |type| %>
+    <div class=" col-xs-12 col-lg-3">
+      <div class="card <%= types[type] ? "brand-dd" : "brand-med-fx" %> <%= type.to_s %>">
+        <div class="card-header">
+          <%= type.to_s %>
         </div>
-        <!-- <div class="card-order-percentage up">
-          <i class="fa fa-caret-up" aria-hidden="true"></i> 57<small>%</small>
-        </div> -->
+        <div class="card-block clearfix">
+          <h1 class="card-value"><small>AED </small>0<small>.00</small></h1>
+        </div>
+        <div class="card-footer clearfix">
+          <div class="card-order-number">
+
+          </div>
+          <!-- <div class="card-order-percentage up">
+            <i class="fa fa-caret-up" aria-hidden="true"></i> 57<small>%</small>
+          </div> -->
+        </div>
       </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
 
-<div class="row charts">
-  <div class="col-xs-6">
-    <div id="container"</div>
+  <div class="row charts">
+    <div class="col-xs-12 col-lg-6">
+      <div id="container"</div>
+    </div>
   </div>
 </div>
