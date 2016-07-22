@@ -1,14 +1,19 @@
-// uncomment below lines to import all instead
+// uncomment below lines to import all
+// bootstrap modules.
 // not recommended, keep it light
+
 // @import 'bootstrap';
 
-// Uncomment modueles when deemed neccassary
+// ---------------------------00---------------------------
 
 /*!
  * Bootstrap v4.0.0-alpha.2 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+// Uncomment modules below only when required
+
 
 $body-bg: #252830;
 $headings-color: #fff;
@@ -65,6 +70,7 @@ $headings-color: #fff;
 @import "bootstrap/utilities-responsive";
 
 
+
 @media (min-width: map-get($grid-breakpoints, lg)) {
   .card {
     min-height: 12em;
@@ -77,7 +83,11 @@ $headings-color: #fff;
   }
 }
 
-@media(max-width:34em) {
+// menu fix for mobile resolutions, keep until
+// bootstrap 4 is out of alpha. Also note there
+// is a Issue on this on their official repo.
+
+@media(max-width: map-get($grid-breakpoints, sm)) {
   .navbar .navbar-nav>.nav-item {
     float: none;
     margin-left: .1rem;
