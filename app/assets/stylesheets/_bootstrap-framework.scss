@@ -19,7 +19,7 @@ $headings-color: #fff;
 
 // Reset and dependencies
 @import "bootstrap/normalize";
-// @import "bootstrap/print";
+@import "bootstrap/print";
 
 // Core CSS
 @import "bootstrap/reboot";
@@ -32,21 +32,22 @@ $headings-color: #fff;
 @import "bootstrap/buttons";
 
 // Components
-@import "bootstrap/animation";
+// @import "bootstrap/animation";
 @import "bootstrap/dropdown";
-@import "bootstrap/button-group";
-@import "bootstrap/input-group";
+// @import "bootstrap/button-group";
+// @import "bootstrap/input-group";
 @import "bootstrap/custom-forms";
 @import "bootstrap/nav";
 @import "bootstrap/navbar";
 @import "bootstrap/card";
 // @import "bootstrap/breadcrumb";
-@import "bootstrap/pagination";
-// @import "bootstrap/tags";
+// @import "bootstrap/pagination";
+// @import "bootstrap/pager";
+@import "bootstrap/labels";
 // @import "bootstrap/jumbotron";
 @import "bootstrap/alert";
 // @import "bootstrap/progress";
-@import "bootstrap/media";
+// @import "bootstrap/media";
 // @import "bootstrap/list-group";
 // @import "bootstrap/responsive-embed";
 @import "bootstrap/close";
@@ -59,17 +60,14 @@ $headings-color: #fff;
 
 // Utility classes
 @import "bootstrap/utilities";
-
-// @media (max-width: 768px) {
-//   .card {
-//     min-height: 10rem;
-//   }
-// }
+@import "bootstrap/utilities-background";
+@import "bootstrap/utilities-spacing";
+@import "bootstrap/utilities-responsive";
 
 
 @media (min-width: map-get($grid-breakpoints, lg)) {
   .card {
-    min-height: 15em;
+    min-height: 12em;
   }
 }
 

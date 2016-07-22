@@ -10,8 +10,13 @@
   </head>
 
   <body>
+    <%= render 'layouts/nav' %>
     <%= render 'layouts/messages' %>
-    <%= link_to "Sign out", destroy_user_session_path, :method => "delete" %>
+    <%#= link_to "Sign out", destroy_user_session_path, :method => "delete" %>
     <%= yield %>
   </body>
+
+  <footer>
+    <p class="copyright">Copyright. Mathema Technology LLC</p>
+  </footer>
 </html>
