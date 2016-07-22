@@ -15,14 +15,6 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
 
     _.each(data, function(value, key) {
 
-      if (key === "sale") {
-        var xxdata = Highcharts.charts[0].series[0]
-        var x = (new Date()).getTime(), // current time
-            y = parseFloat(value);
-        xxdata.addPoint([x, y], true, true);
-      }
-
-
       // format 2 decimal places
       value = parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
       var amountArr = value.split(".");

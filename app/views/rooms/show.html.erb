@@ -1,8 +1,6 @@
 <% types = { sale: true, tip: true, refund: false, void: false } %>
 
 <div class="container-fluid">
-  <!-- <h2>Live Dashboard</h2> -->
-
   <div class="row">
     <% types.keys.each do |type| %>
     <div class="col-xs-12 col-md-6 col-lg-3">
@@ -24,11 +22,5 @@
       </div>
     </div>
     <% end %>
-  </div>
-
-  <div class="row charts">
-    <div class="col-xs-12 col-lg-6">
-      <div id="chart-container"</div>
-    </div>
   </div>
 </div>

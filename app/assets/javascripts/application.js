@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require highcharts@4.2.5
 //= require jquery.matchheight@0.7.0
 //= require jquery.fittext@1.2.0
 //= require underscorejs@1.8.3
