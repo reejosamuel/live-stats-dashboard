@@ -32,7 +32,7 @@ $headings-color: #fff;
 @import "bootstrap/buttons";
 
 // Components
-// @import "bootstrap/animation";
+@import "bootstrap/animation";
 @import "bootstrap/dropdown";
 // @import "bootstrap/button-group";
 // @import "bootstrap/input-group";
@@ -74,6 +74,19 @@ $headings-color: #fff;
 @media (max-width: map-get($grid-breakpoints, md)) {
   .card {
     min-height: 10em;
+  }
+}
+
+@media(max-width:34em) {
+  .navbar .navbar-nav>.nav-item {
+    float: none;
+    margin-left: .1rem;
+  }
+  .navbar .navbar-nav {
+    float:none !important;
+  }
+  .navbar .collapse.in, .navbar .collapsing  {
+    clear:both;
   }
 }
 
