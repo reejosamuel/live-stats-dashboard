@@ -16,6 +16,7 @@
 //= require jquery.matchheight@0.7.0
 //= require jquery.fittext@1.2.0
 //= require underscorejs@1.8.3
-//= require moment.min.js
+//= require moment.min@2.14.1.js
+//= require livestamp.min@1.1.2.js
 //= require turbolinks
 //= require_tree .

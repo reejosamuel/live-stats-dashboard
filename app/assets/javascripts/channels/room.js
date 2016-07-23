@@ -25,9 +25,14 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
          var div = amountString.hide();
          $(this).replaceWith(amountString);
          $("." + key + " .card-value").fadeIn("slow");
-         var card_timestamp = moment(new Date($.now())).fromNow()
-         $(".card-timestamp").text("Last Update: " + card_timestamp)
       });
+
+      $("." + key + " .card-timestamp").on('change.livestamp',
+        function(event, from, to) {
+          event.preventDefault();
+          $(this).html("Last update: " + to);
+        }).livestamp(new Date()
+      );
     });
   },
 
