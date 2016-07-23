@@ -77,15 +77,26 @@ nav.navbar {
   border-bottom: 1px solid $gray-bg;
 
   .navbar-brand {
-    font-weight: 700;
+    font-weight: 500;
+  }
+}
 
+form {
+  .form-control-label {
+    color: #fff;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 
 footer {
+  position: relative;
   margin-top: 20px;
   bottom: 0;
   .copyright {
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto 0;
     color: #5e6579;
     font-weight: 200;
     font-size: 12px;

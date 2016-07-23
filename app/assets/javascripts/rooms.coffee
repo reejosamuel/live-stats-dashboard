@@ -5,4 +5,8 @@
 $ ->
   $('.card-value').fitText()
   $('.card').matchHeight()
+  $('.alert').fadeTo(2000, 500).slideUp 500, ->
+    $('.alert').alert 'close'
+    return
+
   return

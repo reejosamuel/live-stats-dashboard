@@ -20,7 +20,6 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
         var elem = $(".pulse-card .pulse-button")
         elem.removeClass("red").removeClass("green");
         elem.addClass(connection_status)
-        debugger
       }
 
       // format 2 decimal places
