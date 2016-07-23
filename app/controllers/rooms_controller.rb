@@ -13,6 +13,7 @@ class RoomsController < ApplicationController
     data.sale   = params[:sale] unless params[:sale].nil?
     data.tip    = params[:tip] unless params[:tip].nil?
     data.void   = params[:void] unless params[:void].nil?
+    data.connection_status = params[:connection_status] unless params[:connection_status].nil?
 
     if data.save
       respond_to do |format|

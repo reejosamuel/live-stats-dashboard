@@ -15,6 +15,14 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
 
     _.each(data, function(value, key) {
 
+      if (key === "connection_status") {
+        var connection_status = value == true ? "green" : "red";
+        var elem = $(".pulse-card .pulse-button")
+        elem.removeClass("red").removeClass("green");
+        elem.addClass(connection_status)
+        debugger
+      }
+
       // format 2 decimal places
       value = parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
       var amountArr = value.split(".");
