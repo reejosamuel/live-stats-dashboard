@@ -1,13 +1,35 @@
-<% types = { sale: true, tip: true, refund: false, void: false,
-salse: true, tsip: true, rsefund: false, voisd: false } %>
+<% types = { sale:    "brand-dd",
+              tip:    "brand-dd",
+              refund: "brand-med-fx",
+              void:   "brand-med-fx",
+            } %>
 
 <div class="container-fluid">
   <div class="row">
     <% types.keys.each do |type| %>
     <div class="col-xs-12 col-md-6 col-lg-3">
-      <div class="card <%= types[type] ? "brand-dd" : "brand-med-fx" %> <%= type.to_s %>">
+      <div class="card <%= types[type] %> <%= type.to_s %> count">
         <div class="card-header">
-          <%= type.to_s %>
+          <%= type.to_s %> Count
+        </div>
+        <div class="card-block clearfix">
+          <h1 class="card-value"><small>AED </small>0<small>.00</small></h1>
+        </div>
+        <div class="card-footer clearfix">
+          <div class="card-timestamp">
+          </div>
+          <!-- <div class="card-order-percentage up">
+            <i class="fa fa-caret-up" aria-hidden="true"></i> 57<small>%</small>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% types.keys.each do |type| %>
+    <div class="col-xs-12 col-md-6 col-lg-3">
+      <div class="card <%= types[type] %> <%= type.to_s %> value">
+        <div class="card-header">
+          <%= type.to_s %> Value
         </div>
         <div class="card-block clearfix">
           <h1 class="card-value"><small>AED </small>0<small>.00</small></h1>

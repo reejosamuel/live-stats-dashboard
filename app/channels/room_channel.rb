@@ -3,7 +3,9 @@ class RoomChannel < ApplicationCable::Channel
   def subscribed
     stream_from "room_channel"
     # when we know a client is subscribed, preload the values
-    ActionCable.server.broadcast 'room_channel', Message.first
+    Message.all.each do |message|
+      ActionCable.server.broadcast 'room_channel', message
+    end
   end
 
   def unsubscribed
@@ -11,7 +13,7 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak data
-    # ActionCable.server.broadcast 'room_channel', message: data["message"]
-    Message.create content: data['sale']
+    # client sends data to server here
+    # Message.create content: data['sale']
   end
 end

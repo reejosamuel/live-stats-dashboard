@@ -23,16 +23,31 @@ class RoomsController < ApplicationController
   end
 
   def push
-    data = Message.first
-    data = Message.new(sale: 0, refund: 0, tip: 0, void: 0) if data.nil?
 
-    # data.refund = params[:refund] unless params[:refund].nil?
-    data.sale   = params[:sale] unless params[:sale].nil?
-    data.tip    = params[:tip] unless params[:tip].nil?
-    data.void   = params[:void] unless params[:void].nil?
-    data.connection_status = params[:connection_status] unless params[:connection_status].nil?
+    # /^(sale|tip|void|refund|connection_status)_(value|count)|connection_status$/
 
-    if data.save
+    param_keys = params.keys
+    # if param_keys.contains? "connection_status"
+
+    # end
+
+    types_in_request = Set.new
+    param_keys.each do |key|
+      if clean_key = key.match(/^(sale|tip|void|refund)/)
+        types_in_request.add clean_key.to_s
+      end
+    end
+
+    successful_save = false
+    types_in_request.to_a.each do |key|
+      # clean_key = key.match(/^(sale|tip|void|refund)/).to_s
+      m = Message.find_or_create_by(txn_type: key)
+      m.total_count = params[key+"_count"] if params[key+"_count"]
+      m.total_value = params[key+"_value"] if params[key+"_value"]
+      successful_save = m.save
+    end
+
+    if successful_save
       respond_to do |format|
         format.html  { render plain: "ok" }
         format.json  { render json: { result: true,  message: "Push Success" }.to_json }
