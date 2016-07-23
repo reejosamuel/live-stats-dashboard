@@ -77,6 +77,10 @@ nav.navbar {
   border-bottom: 1px solid $gray-bg;
 
   .navbar-brand {
+    padding-left: 35px;
+    background: image-url('swiftch-logo') no-repeat;
+    background-size: 30px 30px;
+    background-position: 0px 4px;
     font-weight: 500;
   }
 }
