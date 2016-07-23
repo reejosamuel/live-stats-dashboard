@@ -4,6 +4,7 @@
 
 $card-bg: #252830;
 $card-text-color: #666;
+$card-border: #434857;
 $brand-color-dd: #E81280;
 $brand-color-medfx: #74b8ad;
 $transparent: rgba(255,255,255,0.0);
@@ -14,8 +15,9 @@ $blue-bg: #1ca8dd;
   background-color: $transparent;
   color: #fff;
   border-radius: 0;
-  border: 1px solid #434857;
+  border: 1px solid $card-border;
   color: $card-text-color;
+
   &.brand-dd {
     border-top: 5px solid $brand-color-dd;
   }
@@ -72,6 +74,11 @@ nav.navbar {
   margin-bottom: 20px;
   border-radius: 0px;
   border-bottom: 1px solid $gray-bg;
+
+  .navbar-brand {
+    font-weight: 700;
+
+  }
 }
 
 footer {
