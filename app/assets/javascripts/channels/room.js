@@ -18,14 +18,16 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
 
       var total_value = data["total_value"];
       var total_count = data["total_count"];
+      var updated_at  = parseRailsTime(data["updated_at"]);
 
+      // debugger
 
       if (total_value != null) {
-        set_transaction_data (key, total_value, false);
+        set_transaction_data (key, total_value, updated_at, false);
       }
 
       if (total_count != null) {
-        set_transaction_data (key, total_count, true);
+        set_transaction_data (key, total_count, updated_at, true);
       }
     }
 
@@ -44,7 +46,7 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
   },
 });
 
-function set_transaction_data(key, value, count_type = false) {
+function set_transaction_data(key, value, updated_at, count_type = false) {
 
   var typeString = count_type ? "count" : "value";
   var amountString = "";
@@ -68,7 +70,16 @@ function set_transaction_data(key, value, count_type = false) {
     function(event, from, to) {
       event.preventDefault();
       $(this).html("Last update: " + to);
-    }).livestamp(new Date()
-  );
+    }).livestamp(updated_at);
 }
 
+
+function parseRailsTime(iso8601) {
+  var s = $.trim(iso8601);
+  s = s.replace(/\.\d+/,""); // remove milliseconds
+  s = s.replace(/-/,"/").replace(/-/,"/");
+  s = s.replace(/T/," ").replace(/Z/," UTC");
+  s = s.replace(/([\+\-]\d\d)\:?(\d\d)/," $1$2"); // -04:00 -> -0400
+  s = s.replace(/([\+\-]\d\d)$/," $100"); // +09 -> +0900
+  return new Date(s);
+}
