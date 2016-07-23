@@ -81,7 +81,9 @@ nav.navbar {
     background: image-url('swiftch-logo') no-repeat;
     background-size: 30px 30px;
     background-position: 0px 4px;
-    font-weight: 500;
+    font-weight: 100;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
   }
 }
 
@@ -92,8 +94,7 @@ form {
 
   .form-control-label {
     color: #fff;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding: 2px 0px;
   }
 
   i {
@@ -101,6 +102,7 @@ form {
     display: block;
     color: $card-text-color;
     font-style: normal;
+    margin-bottom: 5px;
   }
 
   #error_explanation {
