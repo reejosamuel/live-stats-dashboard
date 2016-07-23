@@ -25,11 +25,14 @@ class RoomsController < ApplicationController
   def push
 
     # /^(sale|tip|void|refund|connection_status)_(value|count)|connection_status$/
+    successful_save = false
 
     param_keys = params.keys
-    # if param_keys.contains? "connection_status"
-
-    # end
+    if param_keys.include? "connection_status"
+      c = ConnectionStatus.first || ConnectionStatus.new
+      c.status = params[:connection_status]
+      successful_save = c.save
+    end
 
     types_in_request = Set.new
     param_keys.each do |key|
@@ -38,7 +41,6 @@ class RoomsController < ApplicationController
       end
     end
 
-    successful_save = false
     types_in_request.to_a.each do |key|
       # clean_key = key.match(/^(sale|tip|void|refund)/).to_s
       m = Message.find_or_create_by(txn_type: key)

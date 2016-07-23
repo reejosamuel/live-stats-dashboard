@@ -11,7 +11,15 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
     // Called when there's incoming data
     // on the websocket for this channel
 
-    // debugger
+    if ("status" in data) {
+      // connection status
+      var connection_status = data["status"] == true ? "green" : "red";
+      var elem = $(".pulse-card .pulse-button")
+      elem.removeClass("red").removeClass("green");
+      elem.addClass(connection_status)
+      updateTimestamp("pulse-card", updated_at);
+      return;
+    }
 
     if ("txn_type" in data) {
       var key = data["txn_type"];
@@ -23,20 +31,19 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
       // debugger
 
       if (total_value != null) {
-        set_transaction_data (key, total_value, updated_at, false);
+        set_transaction_data (key, total_value, false);
+        updateTimestamp(key, updated_at);
       }
 
       if (total_count != null) {
-        set_transaction_data (key, total_count, updated_at, true);
+        set_transaction_data (key, total_count, true);
+        updateTimestamp(key, updated_at);
       }
+
+      return;
     }
 
-    // if (key === "connection_status") {
-    //   var connection_status = value == true ? "green" : "red";
-    //   var elem = $(".pulse-card .pulse-button")
-    //   elem.removeClass("red").removeClass("green");
-    //   elem.addClass(connection_status)
-    // }
+
   },
 
   speak: function(message) {
@@ -65,12 +72,14 @@ function set_transaction_data(key, value, updated_at, count_type = false) {
      $(this).replaceWith(amountString);
      $("." + key + " .card-value").fadeIn("slow");
   });
+}
 
+function updateTimestamp(key, updated_at) {
   $("." + key + " .card-timestamp").on('change.livestamp',
-    function(event, from, to) {
-      event.preventDefault();
-      $(this).html("Last update: " + to);
-    }).livestamp(updated_at);
+  function(event, from, to) {
+    event.preventDefault();
+    $(this).html("Last update: " + to);
+  }).livestamp(updated_at);
 }
 
 

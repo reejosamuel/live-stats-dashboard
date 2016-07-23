@@ -22,13 +22,13 @@ $green_color: #32CD32;
 
 @media (min-width: map-get($grid-breakpoints, lg)) {
   .card .pulse-container {
-    height: 10rem;
+    height: 8rem;
   }
 }
 
 @media (max-width: map-get($grid-breakpoints, md)) {
   .card .pulse-container {
-    height: 8rem;
+    height: 6rem;
   }
 }
 

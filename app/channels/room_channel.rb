@@ -6,6 +6,10 @@ class RoomChannel < ApplicationCable::Channel
     Message.all.each do |message|
       ActionCable.server.broadcast 'room_channel', message
     end
+
+    ConnectionStatus.all.each do |message|
+      ActionCable.server.broadcast 'room_channel', message
+    end
   end
 
   def unsubscribed
