@@ -26,7 +26,8 @@ $blue-bg: #1ca8dd;
   }
   .card-header {
     background-color: $card-bg;
-    border-bottom: 0;
+    // border-bottom: 0;
+    border-bottom: 1px solid #373b45;
     color: #E4E1E1;
     text-transform: uppercase;
   }
@@ -83,7 +84,6 @@ nav.navbar {
 
 footer {
   margin-top: 20px;
-  position: absolute;
   bottom: 0;
   .copyright {
     color: #5e6579;

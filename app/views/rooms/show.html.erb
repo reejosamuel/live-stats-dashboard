@@ -1,4 +1,5 @@
-<% types = { sale: true, tip: true, refund: false, void: false } %>
+<% types = { sale: true, tip: true, refund: false, void: false,
+salse: true, tsip: true, rsefund: false, voisd: false } %>
 
 <div class="container-fluid">
   <div class="row">
@@ -12,7 +13,8 @@
           <h1 class="card-value"><small>AED </small>0<small>.00</small></h1>
         </div>
         <div class="card-footer clearfix">
-          <div class="card-timestamp"></div>
+          <div class="card-timestamp">
+          </div>
           <!-- <div class="card-order-percentage up">
             <i class="fa fa-caret-up" aria-hidden="true"></i> 57<small>%</small>
           </div> -->
@@ -20,5 +22,18 @@
       </div>
     </div>
     <% end %>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-3">
+      <div class="card pulse-card">
+        <div class="card-header">
+          Connection Health
+        </div>
+        <div class="pulse-container">
+          <div class="pulse-button red">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
