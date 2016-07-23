@@ -85,10 +85,31 @@ form {
   .form-group {
     margin-bottom: 0.6rem;
   }
+
   .form-control-label {
     color: #fff;
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  i {
+    font-size: 11px;
+    display: block;
+    color: $card-text-color;
+    font-style: normal;
+  }
+
+  #error_explanation {
+    h2{
+      font-size: 14px;
+      color: #ff5959;
+    }
+    ul {
+      color: #ff5959;
+      list-style: none;
+      padding-left: 0px;
+      font-size: 14px;
+    }
   }
 }
 
