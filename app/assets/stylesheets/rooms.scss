@@ -85,6 +85,13 @@ nav.navbar {
     letter-spacing: 0.2rem;
     text-transform: uppercase;
   }
+
+  .nav-link.user-name {
+    color: $blue-bg;
+    &:hover {
+      color: $blue-bg;
+    }
+  }
 }
 
 form {
