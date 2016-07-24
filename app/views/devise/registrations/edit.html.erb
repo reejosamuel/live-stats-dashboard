@@ -6,8 +6,26 @@
       <%= devise_error_messages! %>
 
       <div class="form-group">
+        <div class="row">
+          <div class="col-xs-6">
+            <%= f.label :first_name, class: "form-control-label" %>
+            <%= f.text_field :first_name, class: "form-control" %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.label :last_name, class: "form-control-label" %>
+            <%= f.text_field :last_name, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
         <%= f.label :email, class: "form-control-label" %><br />
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :mobile, class: "form-control-label" %><br />
+        <%= f.text_field :mobile, class: "form-control" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -26,7 +44,7 @@
 
       <div class="form-group">
         <%= f.label :current_password, class: "form-control-label" %>
-        <br><i>(we need your current password to confirm your changes)</i><br />
+        <br><i>(we need your current password to confirm your changes)</i>
         <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
       </div>
 
