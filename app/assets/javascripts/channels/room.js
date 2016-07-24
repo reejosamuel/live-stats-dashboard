@@ -42,8 +42,6 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
 
       return;
     }
-
-
   },
 
   speak: function(message) {
@@ -53,7 +51,7 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
   },
 });
 
-function set_transaction_data(key, value, updated_at, count_type = false) {
+function set_transaction_data(key, value, count_type) {
 
   var typeString = count_type ? "count" : "value";
   var amountString = "";
@@ -81,7 +79,6 @@ function updateTimestamp(key, updated_at) {
     $(this).html("Last update: " + to);
   }).livestamp(updated_at);
 }
-
 
 function parseRailsTime(iso8601) {
   var s = $.trim(iso8601);

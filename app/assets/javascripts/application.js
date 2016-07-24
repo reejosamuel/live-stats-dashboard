@@ -12,7 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
+//= require bootstrap/util
+//= require bootstrap/alert
+//= require bootstrap/button
+//= require bootstrap/collapse
+//= require bootstrap/dropdown
+//= require bootstrap/scrollspy
+//= require bootstrap/tab
 //= require jquery.matchheight@0.7.0
 //= require jquery.fittext@1.2.0
 //= require underscorejs@1.8.3
