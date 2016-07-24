@@ -8,6 +8,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :mobile, presence: true
+  validates :mobile, uniqueness: true
+  validates :mobile, format: { with: /\A05\d{8}\z/, message: "must be valid UAE number. e.g. 0504567123" }
+  #   validates :mobile, length: { is: 10 }
+
   def set_default_role
     self.role ||= :sales
   end
