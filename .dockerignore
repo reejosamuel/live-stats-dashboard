@@ -6,3 +6,5 @@ tmp/*
 Dockerfile
 README.md
 .byebug_history
+docker-compose-prod.yml
+docker-compose.yml
