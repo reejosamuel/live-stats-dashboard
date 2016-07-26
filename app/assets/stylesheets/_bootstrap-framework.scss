@@ -90,6 +90,12 @@ $font-family-base:       $font-family-sans-serif !default;
   }
 }
 
+@media (max-width: map-get($grid-breakpoints, sm)) {
+  .confirmation.col-xs-12 {
+    margin-bottom: 1rem;
+  }
+}
+
 // menu fix for mobile resolutions, keep until
 // bootstrap 4 is out of alpha. Also note there
 // is a Issue on this on their official repo.

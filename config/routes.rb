@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { confirmations: 'confirmations' }
+
   post "push", to: 'rooms#push'
 
   authenticate :user do
