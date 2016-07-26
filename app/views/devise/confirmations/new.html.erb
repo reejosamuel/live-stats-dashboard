@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row">
   <div class="col-md-5 col-lg-4 col-lg-offset-1 col-xs-12 confirmation">
-
   <h2>Enter confirmation code</h2>
   <h4>received via SMS</h4>
 
-  <div class="form-error">
-    <%= devise_error_messages! %>
-  </div>
-
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :get }) do |f| %>
+    <% if params[:commit] =~ /mobile/i %>
+    <div class="form-error">
+      <%= devise_error_messages! %>
+    </div>
+    <% end %>
 
     <div class="form-group">
       <%= f.label :confirmation_code, class: "form-control-label" %>
@@ -22,9 +22,15 @@
   <% end %>
   </div>
   <div class="col-md-5 col-md-offset-2 col-lg-4 col-lg-offset-2 col-xs-12">
-    <h4>Resend confirmation code</h4>
-
+    <h2>Resend code</h2>
+    <h4>via SMS</h4>
     <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+
+    <% if params[:commit] =~ /resend/i %>
+    <div class="form-error">
+      <%= devise_error_messages! %>
+    </div>
+    <% end %>
 
       <div class="form-group">
         <%= f.label :email, class: "form-control-label" %><br />

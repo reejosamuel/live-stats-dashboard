@@ -19,7 +19,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
-    received_confirmation_token = params[:user][:confirmation_token] || params[:confirmation_token]
+    received_confirmation_token = params[:confirmation_token] || params[:user] && params[:user][:confirmation_token]
     self.resource = resource_class.confirm_by_token(received_confirmation_token)
     yield resource if block_given?
 
