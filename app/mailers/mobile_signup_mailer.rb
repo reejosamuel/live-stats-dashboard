@@ -37,6 +37,6 @@ class MobileSignupMailer < Devise::Mailer
                         Rails.application.secrets.sms_password)
 
       sms_body = I18n.t "sms.#{action}", code: token
-      client.send_sms("Sender ID", resource.mobile, sms_body)
+      client.send_sms(Rails.application.secrets.sms_senderid, resource.mobile, sms_body)
     end
 end

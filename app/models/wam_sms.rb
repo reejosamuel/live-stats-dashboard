@@ -29,8 +29,8 @@ class WamSms
                 headers: { "User-Agent" => "Swiftch Scorecard 0.0.1" }
               }
 
-    Rails.logger.info "SMS Info === #{@params[:mobiles]} and #{@params[:sms]}"
-    # process_response self.class.get("/sendsms.jsp", options)
+    Rails.logger.info "Sending SMS: to: #{@params[:mobiles]} text: #{@params[:sms]}"
+    process_response self.class.get("/sendsms.jsp", options)
   end
 
   private
