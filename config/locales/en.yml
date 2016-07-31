@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  sms:
+    confirmation: "%{code} is your Swiftch scorecard verification code."
+    reset_password_instructions: "Please use %{code} to complete your reset password request on Swiftch scorecard."
+    password_change: "Your Swiftch scorecard password has been successfuly changed. If this wasn't you, please contact Swiftch support."

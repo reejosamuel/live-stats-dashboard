@@ -34,19 +34,4 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-
-  # Override the default token generation for 5 Digit code
-  def generate_confirmation_token
-    if self.confirmation_token && !confirmation_period_expired?
-      @raw_confirmation_token = self.confirmation_token
-    else
-      self.confirmation_token = @raw_confirmation_token = random_five_digits
-      self.confirmation_sent_at = Time.now.utc
-    end
-  end
-
-  def random_five_digits
-    rand.to_s[2..6]
-  end
-
 end

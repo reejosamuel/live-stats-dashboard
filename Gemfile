@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'redis', '~> 3.0'
 gem 'devise', '~> 4.x'
+gem 'httparty'
 
 group :production do
   gem 'pg'

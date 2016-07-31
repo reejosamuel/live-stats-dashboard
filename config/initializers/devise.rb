@@ -16,7 +16,7 @@ Devise.setup do |config|
   config.mailer_sender = 'no-reply@mail.com'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'MobileSignupMailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -105,7 +105,7 @@ Devise.setup do |config|
   # Set up a pepper to generate the hashed password.
   # config.pepper = '209659b3b58f5c994dd7533d9e57e4a9aad465417fefdf8c86e803bdd289b99b0867d59ce431719652fe9a01fa9634dee3949357e77a71569381613dc5c719b1'
 
-  # Send a notification email when the user's password is changed
+  # Send a notification email, sms when the user's password is changed
   # config.send_password_change_notification = false
 
   # ==> Configuration for :confirmable
@@ -190,7 +190,7 @@ Devise.setup do |config|
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
-  # config.reset_password_keys = [:email]
+  config.reset_password_keys = [:mobile]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
