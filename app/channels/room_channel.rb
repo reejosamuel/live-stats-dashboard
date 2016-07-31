@@ -2,10 +2,16 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
     stream_from "room_channel"
-    # when we know a client is subscribed, preload the values
-    Message.all.each do |message|
-      ActionCable.server.broadcast 'room_channel', message
+
+    ActiveRecord::Base.connection_pool.with_connection do
+      Message.all.each do |message|
+        ActionCable.server.broadcast 'room_channel', message
+      end
     end
+    # when we know a client is subscribed, preload the values
+    # Message.all.each do |message|
+    #   ActionCable.server.broadcast 'room_channel', message
+    # end
 
     # ConnectionStatus.all.each do |message|
     #   ActionCable.server.broadcast 'room_channel', message

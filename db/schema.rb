@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726110626) do
+ActiveRecord::Schema.define(version: 20160731192947) do
 
   create_table "connection_statuses", force: :cascade do |t|
     t.boolean  "status"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20160726110626) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
     t.integer  "role"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
